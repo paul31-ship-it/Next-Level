@@ -193,6 +193,7 @@
         email   : contactForm.querySelector('[name="email"]')?.value   || '',
         sujet   : contactForm.querySelector('[name="sujet"]')?.value   || '',
         message : contactForm.querySelector('[name="message"]')?.value || '',
+        website : contactForm.querySelector('[name="website"]')?.value || '',  // honeypot
       };
 
       fetch('/api/contact', {
