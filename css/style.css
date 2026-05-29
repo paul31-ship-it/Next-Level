@@ -1161,8 +1161,10 @@ button.footer__link:focus-visible {
 
 /* Formulaire */
 .contact__form {
-  background: var(--nl-bg-elevated);
-  border: 1px solid rgba(123, 92, 255, 0.15);
+  background: rgba(15, 11, 30, 0.97);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(123, 92, 255, 0.18);
   border-radius: var(--radius-xl);
   padding: 40px;
 }
