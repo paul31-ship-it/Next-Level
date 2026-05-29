@@ -91,36 +91,29 @@ button.footer__link:focus-visible {
 .nav__logo {
   display: flex;
   align-items: center;
-  gap: 10px;
   cursor: pointer;
+  flex-shrink: 0;
 }
 
-.nav__logo-mark {
-  width: 36px;
-  height: 36px;
-  background: var(--nl-gradient-legend);
-  border-radius: var(--radius-sm);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-size: 1.25rem;
-  color: var(--nl-bg-primary);
-  box-shadow: var(--glow-violet);
-  letter-spacing: -0.02em;
+.nav__logo-img {
+  height: 38px;
+  width: auto;
+  display: block;
+  /* Le logo a un fond noir — on l'intègre proprement au nav sombre */
+  border-radius: 4px;
+  /* Léger glow violet pour cohérence avec la charte */
+  filter: drop-shadow(0 0 8px rgba(123, 92, 255, 0.45));
+  transition: filter 0.25s ease, transform 0.25s ease;
 }
 
-.nav__logo-text {
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-size: 1.2rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  background: var(--nl-gradient-legend);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+.nav__logo:hover .nav__logo-img {
+  filter: drop-shadow(0 0 14px rgba(123, 92, 255, 0.75)) drop-shadow(0 0 28px rgba(61, 224, 255, 0.3));
+  transform: scale(1.03);
+}
+
+/* Footer — logo légèrement plus petit */
+.footer__brand .nav__logo-img {
+  height: 32px;
 }
 
 /* Liens */
