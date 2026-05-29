@@ -7,8 +7,8 @@
   <title>Next Level — Build Players. Build Legends.</title>
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="assets/Icone%20Next%20Level.png" />
-  <link rel="apple-touch-icon" href="assets/Icone%20Next%20Level.png" />
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <link rel="apple-touch-icon" href="assets/favicon.png" />
 
   <!-- CSS -->
   <link rel="stylesheet" href="css/reset.css" />
@@ -30,7 +30,7 @@
 ══════════════════════════════════════════ -->
 <nav class="nav" role="navigation" aria-label="Navigation principale">
   <a href="index.html" class="nav__logo" aria-label="Next Level — Accueil">
-    <img src="assets/Logo%20Next%20Level%20transparent.png" alt="Next Level" class="nav__logo-img" />
+    <img src="assets/logo.png" alt="Next Level" class="nav__logo-img" />
   </a>
 
   <ul class="nav__links" role="list">
@@ -717,7 +717,7 @@
               </div>
               <div>
                 <p class="contact__info-label">Email</p>
-                <p class="contact__info-value">hello@nextlevel.app</p>
+                <a href="mailto:paul.fourny@hotmail.fr" class="contact__info-value" style="color:var(--nl-neon-cyan);">paul.fourny@hotmail.fr</a>
               </div>
             </div>
             <div class="contact__info-item">
@@ -730,6 +730,19 @@
               <div>
                 <p class="contact__info-label">Basé à</p>
                 <p class="contact__info-value">Toulouse, France 🇫🇷</p>
+              </div>
+            </div>
+            <div class="contact__info-item">
+              <div class="contact__info-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                  <rect x="2" y="9" width="4" height="12"/>
+                  <circle cx="4" cy="4" r="2"/>
+                </svg>
+              </div>
+              <div>
+                <p class="contact__info-label">LinkedIn</p>
+                <a href="https://www.linkedin.com/in/paul-fourny" target="_blank" rel="noopener noreferrer" class="contact__info-value" style="color:var(--nl-neon-cyan);">paul-fourny</a>
               </div>
             </div>
             <div class="contact__info-item">
@@ -779,6 +792,9 @@
               <label class="form__label" for="message">Message *</label>
               <textarea class="form__textarea" id="message" name="message" placeholder="Je veux déployer Next Level dans mon club de Toulouse…" required></textarea>
             </div>
+            <!-- Honeypot anti-spam : doit rester vide -->
+            <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true"
+              style="position:absolute;left:-9999px;opacity:0;pointer-events:none;" />
             <button type="submit" class="btn-primary form__submit">
               Envoyer le message
             </button>
@@ -794,8 +810,7 @@
       <div class="footer__top">
         <div class="footer__brand">
           <a href="index.html" class="nav__logo" aria-label="Next Level — Accueil">
-            <div class="nav__logo-mark" aria-hidden="true">N</div>
-            <span class="nav__logo-text">Next Level</span>
+            <img src="assets/logo.png" alt="Next Level" class="nav__logo-img" />
           </a>
           <p>Vestiaire transforme la gestion d'équipe basket en aventure RPG. Pour le coach passionné qui veut coacher comme un pro — sans le budget d'un pro.</p>
         </div>
@@ -842,6 +857,14 @@
               <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
               <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
               <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+            </svg>
+          </a>
+          <!-- LinkedIn -->
+          <a href="https://www.linkedin.com/in/paul-fourny" target="_blank" rel="noopener noreferrer" class="footer__social" aria-label="LinkedIn Paul Fourny">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+              <rect x="2" y="9" width="4" height="12"/>
+              <circle cx="4" cy="4" r="2"/>
             </svg>
           </a>
           <!-- TikTok -->
