@@ -1,0 +1,133 @@
+/* ============================================================
+   NEXT LEVEL — RESET & VARIABLES CSS
+   Basé sur la charte graphique v1.0
+   ============================================================ */
+
+/* --- Reset moderne --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  min-height: 100vh;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+img, video, svg {
+  display: block;
+  max-width: 100%;
+}
+
+button, input, textarea, select {
+  font: inherit;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.1;
+  overflow-wrap: break-word;
+}
+
+/* --- Variables CSS — Charte Next Level --- */
+:root {
+  /* ── Surfaces ── */
+  --nl-bg-primary:    #07060D;
+  --nl-bg-secondary:  #0F0B1E;
+  --nl-bg-elevated:   #161229;
+  --nl-bg-overlay:    rgba(7, 6, 13, 0.85);
+
+  /* ── Accents néon ── */
+  --nl-neon-violet:       #7B5CFF;
+  --nl-neon-violet-glow:  rgba(123, 92, 255, 0.45);
+  --nl-neon-cyan:         #3DE0FF;
+  --nl-neon-cyan-glow:    rgba(61, 224, 255, 0.45);
+
+  /* ── Texte ── */
+  --nl-text-primary:   #F4F2FF;
+  --nl-text-secondary: #9B96B8;
+  --nl-text-disabled:  #5A5670;
+
+  /* ── États ── */
+  --nl-success: #A8FF60;
+  --nl-danger:  #FF3366;
+  --nl-warning: #FFB23D;
+
+  /* ── Gradients ── */
+  --nl-gradient-legend:     linear-gradient(135deg, #7B5CFF 0%, #3DE0FF 100%);
+  --nl-gradient-court-glow: radial-gradient(ellipse at 50% 80%, rgba(123,92,255,0.25) 0%, transparent 70%);
+  --nl-gradient-rim-light:  linear-gradient(180deg, transparent 0%, rgba(61,224,255,0.15) 100%);
+
+  /* ── Border-radius ── */
+  --radius-xs:   4px;
+  --radius-sm:   8px;
+  --radius-md:   16px;
+  --radius-lg:   24px;
+  --radius-xl:   32px;
+  --radius-pill: 9999px;
+
+  /* ── Ombres ── */
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.4);
+  --shadow-md: 0 8px 24px rgba(0,0,0,0.5);
+  --shadow-lg: 0 16px 48px rgba(0,0,0,0.6);
+
+  /* ── Glow néon ── */
+  --glow-violet: 0 0 24px rgba(123,92,255,0.5), 0 0 48px rgba(123,92,255,0.25);
+  --glow-cyan:   0 0 24px rgba(61,224,255,0.5),  0 0 48px rgba(61,224,255,0.25);
+  --glow-soft:   0 0 16px rgba(123,92,255,0.3);
+
+  /* ── Typographie ── */
+  --font-display: 'Saira Condensed', sans-serif;
+  --font-body:    'Inter', sans-serif;
+  --font-mono:    'JetBrains Mono', monospace;
+
+  --text-display: 4.5rem;
+  --text-h1:      3rem;
+  --text-h2:      2.25rem;
+  --text-h3:      1.5rem;
+  --text-h4:      1.25rem;
+  --text-body-lg: 1.125rem;
+  --text-body:    1rem;
+  --text-sm:      0.875rem;
+  --text-xs:      0.75rem;
+
+  /* ── Z-index ── */
+  --z-canvas:  0;
+  --z-content: 10;
+  --z-sticky:  20;
+  --z-overlay: 30;
+  --z-modal:   50;
+
+  /* ── Transitions ── */
+  --transition-fast:   150ms ease;
+  --transition-base:   250ms ease;
+  --transition-slow:   400ms ease;
+}
+
+/* --- Reduced motion --- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Next Level — Découvrez l'histoire, l'équipe et la vision derrière l'app de gestion d'équipe basket la plus engageante du marché." />
+  <title>À propos — Next Level</title>
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* ── Styles spécifiques à la page À propos ── */
+
+    /* Valeurs piliers */
+    .valeurs__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+    }
+
+    .valeur-card {
+      padding: 36px 28px;
+      background: var(--nl-bg-elevated);
+      border: 1px solid rgba(123,92,255,0.12);
+      border-radius: var(--radius-lg);
+      text-align: center;
+      transition: border-color var(--transition-base), transform var(--transition-base);
+    }
+
+    .valeur-card:hover {
+      border-color: rgba(123,92,255,0.35);
+      transform: translateY(-6px);
+    }
+
+    .valeur-card__icon {
+      width: 56px;
+      height: 56px;
+      margin: 0 auto 20px;
+      background: rgba(123,92,255,0.1);
+      border: 1px solid rgba(123,92,255,0.25);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .valeur-card__icon svg {
+      width: 26px; height: 26px;
+      stroke: var(--nl-neon-violet);
+      filter: drop-shadow(0 0 8px var(--nl-neon-violet-glow));
+    }
+
+    .valeur-card__name {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: var(--text-h3);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--nl-text-primary);
+      margin-bottom: 10px;
+    }
+
+    .valeur-card__desc {
+      font-size: var(--text-sm);
+      color: var(--nl-text-secondary);
+      line-height: 1.65;
+    }
+
+    /* Personas */
+    .personas {
+      background: var(--nl-bg-secondary);
+    }
+
+    .personas__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin-top: 56px;
+    }
+
+    .persona-card {
+      padding: 36px;
+      background: var(--nl-bg-elevated);
+      border: 1px solid rgba(123,92,255,0.15);
+      border-radius: var(--radius-xl);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .persona-card--primary {
+      border-color: rgba(123,92,255,0.4);
+      background: linear-gradient(135deg, rgba(123,92,255,0.1) 0%, rgba(61,224,255,0.04) 100%);
+    }
+
+    .persona-card__tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      border-radius: var(--radius-pill);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .persona-card--primary .persona-card__tag {
+      background: var(--nl-gradient-legend);
+      color: var(--nl-bg-primary);
+      box-shadow: var(--glow-violet);
+    }
+
+    .persona-card--secondary .persona-card__tag {
+      background: rgba(61,224,255,0.1);
+      border: 1px solid rgba(61,224,255,0.3);
+      color: var(--nl-neon-cyan);
+    }
+
+    .persona-card__header {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 24px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid rgba(244,242,255,0.06);
+    }
+
+    .persona-card__avatar {
+      width: 56px;
+      height: 56px;
+      border-radius: var(--radius-md);
+      background: var(--nl-gradient-legend);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.4rem;
+      color: var(--nl-bg-primary);
+      flex-shrink: 0;
+    }
+
+    .persona-card__name {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: var(--text-h3);
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      color: var(--nl-text-primary);
+      margin-bottom: 4px;
+    }
+
+    .persona-card__meta {
+      font-size: var(--text-xs);
+      color: var(--nl-text-secondary);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .persona-card__quote {
+      font-size: var(--text-sm);
+      color: var(--nl-text-primary);
+      font-style: italic;
+      line-height: 1.7;
+      padding: 16px;
+      background: rgba(123,92,255,0.06);
+      border-left: 2px solid var(--nl-neon-violet);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      margin-bottom: 20px;
+    }
+
+    .persona-card__details {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .persona-detail {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: var(--text-sm);
+      color: var(--nl-text-secondary);
+    }
+
+    .persona-detail strong {
+      color: var(--nl-text-primary);
+      font-weight: 600;
+      flex-shrink: 0;
+      min-width: 90px;
+    }
+
+    /* Team section */
+    .team__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 56px;
+    }
+
+    .team-card {
+      padding: 32px;
+      background: var(--nl-bg-elevated);
+      border: 1px solid rgba(123,92,255,0.12);
+      border-radius: var(--radius-lg);
+      text-align: center;
+      transition: border-color var(--transition-base), transform var(--transition-base);
+    }
+
+    .team-card:hover {
+      border-color: rgba(123,92,255,0.3);
+      transform: translateY(-4px);
+    }
+
+    .team-card__avatar {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: var(--nl-gradient-legend);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.6rem;
+      color: var(--nl-bg-primary);
+      margin: 0 auto 16px;
+      box-shadow: var(--glow-violet);
+    }
+
+    .team-card__name {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: var(--text-h4);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--nl-text-primary);
+      margin-bottom: 4px;
+    }
+
+    .team-card__role {
+      font-size: var(--text-xs);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--nl-neon-cyan);
+      margin-bottom: 12px;
+    }
+
+    .team-card__bio {
+      font-size: var(--text-sm);
+      color: var(--nl-text-secondary);
+      line-height: 1.65;
+    }
+
+    /* Stats brand */
+    .brand-stats {
+      background: var(--nl-bg-primary);
+    }
+
+    .brand-stats__grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-top: 56px;
+    }
+
+    .brand-stat {
+      padding: 32px 24px;
+      background: var(--nl-bg-elevated);
+      border: 1px solid rgba(123,92,255,0.12);
+      border-radius: var(--radius-lg);
+      text-align: center;
+    }
+
+    .brand-stat__value {
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: 2.5rem;
+      color: var(--nl-neon-cyan);
+      text-shadow: var(--glow-cyan);
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .brand-stat__label {
+      font-size: var(--text-xs);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--nl-text-secondary);
+    }
+
+    /* Stratégie acquisition */
+    .strategie {
+      background: var(--nl-bg-secondary);
+    }
+
+    .strategie__table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 48px;
+      font-size: var(--text-sm);
+    }
+
+    .strategie__table th {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--nl-text-secondary);
+      padding: 12px 16px;
+      text-align: left;
+      border-bottom: 1px solid rgba(244,242,255,0.06);
+    }
+
+    .strategie__table td {
+      padding: 16px;
+      color: var(--nl-text-secondary);
+      border-bottom: 1px solid rgba(244,242,255,0.04);
+      vertical-align: top;
+    }
+
+    .strategie__table tr:hover td {
+      background: rgba(123,92,255,0.04);
+      color: var(--nl-text-primary);
+    }
+
+    .strategie__mois {
+      font-family: var(--font-mono);
+      font-weight: 700;
+      color: var(--nl-neon-violet);
+    }
+
+    .strategie__objectif {
+      font-family: var(--font-mono);
+      color: var(--nl-neon-cyan);
+    }
+
+    @media (max-width: 1024px) {
+      .valeurs__grid,
+      .team__grid { grid-template-columns: 1fr 1fr; }
+      .personas__grid { grid-template-columns: 1fr; }
+      .brand-stats__grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      .valeurs__grid,
+      .team__grid { grid-template-columns: 1fr; }
+      .brand-stats__grid { grid-template-columns: 1fr 1fr; }
+      .strategie__table { font-size: 12px; }
+      .strategie__table td,
+      .strategie__table th { padding: 10px 8px; }
+    }
+  </style>
+
+
+</head>
+<body>
+
+<canvas id="basketball-canvas" aria-hidden="true"></canvas>
+<div class="scroll-progress" aria-hidden="true"></div>
+
+<!-- NAV -->
+<nav class="nav" role="navigation" aria-label="Navigation principale">
+  <a href="index.html" class="nav__logo" aria-label="Next Level — Accueil">
+    <div class="nav__logo-mark" aria-hidden="true">N</div>
+    <span class="nav__logo-text">Next Level</span>
+  </a>
+  <ul class="nav__links" role="list">
+    <li><a href="index.html#difference" class="nav__link">Notre différence</a></li>
+    <li><a href="index.html#histoire" class="nav__link">Histoire</a></li>
+    <li><a href="index.html#offre" class="nav__link">Notre offre</a></li>
+    <li><a href="index.html#avis" class="nav__link">Avis</a></li>
+    <li><a href="contact.html" class="nav__link">Contact</a></li>
+    <li><a href="a-propos.html" class="nav__link active">À propos</a></li>
+  </ul>
+  <div class="nav__cta">
+    <a href="contact.html" class="btn-secondary">Se connecter</a>
+    <a href="contact.html" class="btn-primary">Essai gratuit</a>
+  </div>
+  <button class="nav__burger" aria-label="Ouvrir le menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="nav__mobile-menu" role="dialog" aria-label="Menu mobile">
+  <button class="nav__mobile-close" aria-label="Fermer le menu">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+  </button>
+  <a href="index.html#difference" class="nav__mobile-link">Notre différence</a>
+  <a href="index.html#offre" class="nav__mobile-link">Notre offre</a>
+  <a href="index.html#avis" class="nav__mobile-link">Avis</a>
+  <a href="contact.html" class="nav__mobile-link">Contact</a>
+  <a href="a-propos.html" class="nav__mobile-link">À propos</a>
+  <a href="contact.html" class="btn-primary btn-large" style="margin-top: 16px;">Essai gratuit</a>
+</div>
+
+<div class="site-wrapper">
+
+  <!-- ── PAGE HERO ── -->
+  <section class="page-hero" aria-labelledby="page-hero-title">
+    <div class="page-hero__bg" aria-hidden="true"></div>
+    <div class="container">
+      <div class="page-hero__content">
+        <p class="section__label reveal">À propos</p>
+        <h1 class="section__title reveal delay-1" id="page-hero-title" style="font-size: clamp(2.5rem, 5vw, 4rem);">
+          La vision derrière<br/>
+          <span class="gradient-text">Next Level</span>
+        </h1>
+        <p class="section__subtitle reveal delay-2">
+          Une équipe de passionnés de basket et de technologie,
+          obsédée par une idée simple : rendre le coaching accessible,
+          engageant et gratifiant pour tous.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── VALEURS PILIERS ── -->
+  <section class="section brand-stats" aria-labelledby="valeurs-title">
+    <div class="container">
+      <div class="reveal">
+        <p class="section__label">Nos valeurs</p>
+        <h2 class="section__title" id="valeurs-title">
+          Ce qui nous guide<br/>
+          <span class="gradient-text">chaque jour</span>
+        </h2>
+      </div>
+      <div class="valeurs__grid">
+        <article class="valeur-card reveal delay-1">
+          <div class="valeur-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+            </svg>
+          </div>
+          <h3 class="valeur-card__name">Énergie</h3>
+          <p class="valeur-card__desc">L'outil doit donner envie de coacher, pas juste de gérer. Chaque interaction dans l'app doit être stimulante, pas pénible.</p>
+        </article>
+        <article class="valeur-card reveal delay-2">
+          <div class="valeur-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+            </svg>
+          </div>
+          <h3 class="valeur-card__name">Progression</h3>
+          <p class="valeur-card__desc">Chaque joueur, chaque match, chaque saison est une étape mesurable. La progression n'est plus invisible — elle se voit, se célèbre, se partage.</p>
+        </article>
+        <article class="valeur-card reveal delay-3">
+          <div class="valeur-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </div>
+          <h3 class="valeur-card__name">Accessibilité</h3>
+          <p class="valeur-card__desc">Pensé pour le coach bénévole, pas pour l'analyste vidéo pro. Setup en 8 minutes, pas en 8 heures. Prix humain, pour des humains passionnés.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CHIFFRES ── -->
+  <section class="section" style="background: var(--nl-bg-secondary);" aria-labelledby="chiffres-title">
+    <div class="container">
+      <div class="reveal" style="text-align: center; margin-bottom: 0;">
+        <p class="section__label" style="justify-content: center;">Bêta Toulouse — Chiffres clés</p>
+        <h2 class="section__title" id="chiffres-title" style="text-align: center;">
+          <span class="gradient-text">Les résultats parlent.</span>
+        </h2>
+      </div>
+      <div class="brand-stats__grid" style="margin-top: 48px;">
+        <div class="brand-stat reveal delay-1">
+          <span class="brand-stat__value" data-counter="850" data-suffix="+">850+</span>
+          <span class="brand-stat__label">Coachs inscrits</span>
+        </div>
+        <div class="brand-stat reveal delay-2">
+          <span class="brand-stat__value" data-counter="3200" data-suffix="+">3 200+</span>
+          <span class="brand-stat__label">Joueurs suivis</span>
+        </div>
+        <div class="brand-stat reveal delay-3">
+          <span class="brand-stat__value" data-counter="12" data-suffix="">12</span>
+          <span class="brand-stat__label">Clubs partenaires</span>
+        </div>
+        <div class="brand-stat reveal delay-4">
+          <span class="brand-stat__value" data-counter="98" data-suffix="%">98%</span>
+          <span class="brand-stat__label">Satisfaction coach</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PERSONAS ── -->
+  <section class="section personas" aria-labelledby="personas-title">
+    <div class="container">
+      <div class="reveal">
+        <p class="section__label">Nos utilisateurs</p>
+        <h2 class="section__title" id="personas-title">
+          On les connaît.<br/>
+          <span class="gradient-text">On les écoute.</span>
+        </h2>
+        <p class="section__subtitle">
+          Next Level est né d'interviews terrain à Toulouse. Voici les deux profils
+          de coachs pour qui on construit l'app, chaque jour.
+        </p>
+      </div>
+      <div class="personas__grid">
+
+        <!-- Théo — Persona primaire -->
+        <article class="persona-card persona-card--primary reveal delay-1">
+          <span class="persona-card__tag">Persona primaire · Tête de pont</span>
+          <div class="persona-card__header">
+            <div class="persona-card__avatar" aria-hidden="true">T</div>
+            <div>
+              <h3 class="persona-card__name">Théo Castan</h3>
+              <p class="persona-card__meta">27 ans · Coach U15 · Toulouse</p>
+            </div>
+          </div>
+          <blockquote class="persona-card__quote">
+            "Je veux que dans 10 ans, mes joueurs disent 'Théo, c'est lui qui m'a donné envie de jouer'. Pas 'Théo le mec sympa du mardi soir'."
+          </blockquote>
+          <div class="persona-card__details">
+            <div class="persona-detail">
+              <strong>Métier :</strong>
+              <span>Animateur sportif + coach bénévole U15 le soir (~8h/semaine non payées)</span>
+            </div>
+            <div class="persona-detail">
+              <strong>Frustrations :</strong>
+              <span>4 groupes WhatsApp, stats perdues au carnet, pas de moyen de valoriser ses joueurs</span>
+            </div>
+            <div class="persona-detail">
+              <strong>Ce qui l'allume :</strong>
+              <span>Les animations Remotion à poster sur Insta, le RPG pour motiver ses U15</span>
+            </div>
+            <div class="persona-detail">
+              <strong>Canaux :</strong>
+              <span>Instagram, TikTok, YouTube basket, Discord coaches</span>
+            </div>
+            <div class="persona-detail">
+              <strong>Golden window :</strong>
+              <span>20h30–22h après l'entraînement — scroll Insta/TikTok</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Marc — Persona secondaire -->
+        <article class="persona-card persona-card--secondary reveal delay-2">
+          <span class="persona-card__tag">Persona secondaire · Effet réseau</span>
+          <div class="persona-card__header">
+            <div class="persona-card__avatar" style="background: linear-gradient(135deg, #3DE0FF 0%, #7B5CFF 100%);" aria-hidden="true">M</div>
+            <div>
+              <h3 class="persona-card__name">Marc Delclos</h3>
+              <p class="persona-card__meta">41 ans · Coach U12 · Blagnac</p>
+            </div>
+          </div>
+          <blockquote class="persona-card__quote">
+            "Je veux profiter des 4 années où mon fils jouera dans mon équipe — et ne pas être nul dans le rôle."
+          </blockquote>
+          <div class="persona-card__details">
+            <div class="persona-detail">
+              <strong>Métier :</strong>
+              <span>Cadre Airbus, coach-papa U12, 4ème saison de bénévolat</span>
+            </div>
+            <div class="persona-detail">
+              <strong>Frustrations :</strong>
+              <span>Manque de légitimité face aux autres parents, pas d'outil simple pour mesurer les progrès</span>
+            </div>
+            <div class="persona-detail">
+              <strong>Ce qui l'allume :</strong>
+              <span>Voir son fils progresser visuellement, partager les animations avec la famille</span>
+            </div>
+            <div class="persona-detail">
+              <strong>Acquisition :</strong>
+              <span>Arrive après Théo — via effet de réseau dans le même club</span>
+            </div>
+            <div class="persona-detail">
+              <strong>Conversion :</strong>
+              <span>Paie plus vite que Théo (revenu cadre + motivation parentale)</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── ÉQUIPE ── -->
+  <section class="section" style="background: var(--nl-bg-primary);" aria-labelledby="equipe-title">
+    <div class="container">
+      <div class="reveal">
+        <p class="section__label">L'équipe</p>
+        <h2 class="section__title" id="equipe-title">
+          Des builders.<br/>
+          <span class="gradient-text">Pas des corporates.</span>
+        </h2>
+        <p class="section__subtitle">
+          Une équipe pluridisciplinaire unie par la même obsession :
+          construire l'outil que les coachs méritent vraiment.
+        </p>
+      </div>
+      <div class="team__grid">
+        <article class="team-card reveal delay-1">
+          <div class="team-card__avatar" aria-hidden="true">CP</div>
+          <h3 class="team-card__name">Chef de Projet</h3>
+          <p class="team-card__role">Stratégie & Vision produit</p>
+          <p class="team-card__bio">Pilote la roadmap, les priorités et l'alignement entre vision business et réalité terrain. Interviewe les coachs, traduit leurs besoins en features.</p>
+        </article>
+        <article class="team-card reveal delay-2">
+          <div class="team-card__avatar" aria-hidden="true">FV</div>
+          <h3 class="team-card__name">Forge Visuelle</h3>
+          <p class="team-card__role">Design & Direction artistique</p>
+          <p class="team-card__bio">Responsable de la DA dark premium, du design system Figma et de l'identité visuelle Next Level. Anti-codes sport corporate assumé.</p>
+        </article>
+        <article class="team-card reveal delay-3">
+          <div class="team-card__avatar" aria-hidden="true">FT</div>
+          <h3 class="team-card__name">Forge Technique</h3>
+          <p class="team-card__role">Dev & Animations Remotion</p>
+          <p class="team-card__bio">Stack Claude Code + Remotion. Développe l'app, génère les animations matchs et maintient l'infrastructure tech. Moteur d'exécution du produit.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── STRATÉGIE ACQUISITION ── -->
+  <section class="section strategie" aria-labelledby="strategie-title">
+    <div class="container">
+      <div class="reveal">
+        <p class="section__label">Roadmap acquisition</p>
+        <h2 class="section__title" id="strategie-title">
+          Toulouse d'abord.<br/>
+          <span class="gradient-text">Le monde ensuite.</span>
+        </h2>
+        <p class="section__subtitle">
+          La stratégie est claire : craquer Toulouse en 6 mois, puis dupliquer le modèle
+          sur Lyon, Nantes, Bordeaux. Chaque ville = une tête de pont.
+        </p>
+      </div>
+
+      <div class="reveal delay-2" style="overflow-x: auto; margin-top: 48px; border: 1px solid rgba(123,92,255,0.12); border-radius: var(--radius-lg);">
+        <table class="strategie__table" aria-label="Plan d'acquisition 6 mois">
+          <thead>
+            <tr>
+              <th scope="col">Mois</th>
+              <th scope="col">Action</th>
+              <th scope="col">Cible</th>
+              <th scope="col">Objectif</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="strategie__mois">M1</td>
+              <td>Présence physique 10 gymnases Toulouse (vendredi soir + samedi)</td>
+              <td>Théo + Marc</td>
+              <td class="strategie__objectif">50 conversations · 30 emails</td>
+            </tr>
+            <tr>
+              <td class="strategie__mois">M1–M2</td>
+              <td>Partenariat comité départemental 31 — formation coachs "outils numériques"</td>
+              <td>Théo + Marc</td>
+              <td class="strategie__objectif">50 inscriptions essai</td>
+            </tr>
+            <tr>
+              <td class="strategie__mois">M2</td>
+              <td>Lancement compte Insta + TikTok local "@vestiaire.toulouse"</td>
+              <td>Théo</td>
+              <td class="strategie__objectif">1 000 followers locaux</td>
+            </tr>
+            <tr>
+              <td class="strategie__mois">M3</td>
+              <td>"Vestiaire Night" au Petit Palais des Sports avant un match TMB</td>
+              <td>Théo + clubs</td>
+              <td class="strategie__objectif">100 coachs présents</td>
+            </tr>
+            <tr>
+              <td class="strategie__mois">M4</td>
+              <td>3 clubs pilotes (Stade Toulousain, Blagnac, Colomiers) — essai gratuit</td>
+              <td>Théo + Marc</td>
+              <td class="strategie__objectif">150 coachs actifs</td>
+            </tr>
+            <tr>
+              <td class="strategie__mois">M5</td>
+              <td>Témoignages vidéo + animations Remotion meilleurs matchs → viralité Insta</td>
+              <td>Joueurs (pour Théo)</td>
+              <td class="strategie__objectif">5 000 followers · effet marque</td>
+            </tr>
+            <tr>
+              <td class="strategie__mois">M6</td>
+              <td>Feature payante : "Mode Tournoi" pour finales départementales (juin)</td>
+              <td>Théo en finale</td>
+              <td class="strategie__objectif">30 abos payants</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA ── -->
+  <section class="cta-final" aria-labelledby="cta-title">
+    <div class="container">
+      <h2 class="cta-final__title reveal" id="cta-title">
+        Tu es <span style="background: var(--nl-gradient-legend); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Théo</span> ou <span style="background: var(--nl-gradient-legend); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Marc</span> ?
+      </h2>
+      <p class="cta-final__sub reveal delay-1">
+        Next Level est fait pour toi. Rejoins la bêta à Toulouse — gratuit, sans CB, sans prise de tête.
+      </p>
+      <div class="cta-final__actions reveal delay-2">
+        <a href="contact.html" class="btn-primary btn-large">Je rejoins la bêta</a>
+        <a href="index.html" class="btn-secondary btn-large">Retour à l'accueil</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <a href="index.html" class="nav__logo" aria-label="Next Level — Accueil">
+            <div class="nav__logo-mark" aria-hidden="true">N</div>
+            <span class="nav__logo-text">Next Level</span>
+          </a>
+          <p>Vestiaire transforme la gestion d'équipe basket en aventure RPG. Pour le coach passionné qui veut coacher comme un pro — sans le budget d'un pro.</p>
+        </div>
+        <div>
+          <h3 class="footer__col-title">Produit</h3>
+          <ul class="footer__links">
+            <li><a href="index.html#difference" class="footer__link">Fonctionnalités</a></li>
+            <li><a href="index.html#offre" class="footer__link">Tarifs</a></li>
+            <li><a href="a-propos.html" class="footer__link">À propos</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="footer__col-title">Légal</h3>
+          <ul class="footer__links">
+            <li><a href="#" class="footer__link">Mentions légales</a></li>
+            <li><a href="#" class="footer__link">CGU</a></li>
+            <li><a href="#" class="footer__link">RGPD</a></li>
+            <li><a href="#" class="footer__link">Données mineurs</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="footer__col-title">Contact</h3>
+          <ul class="footer__links">
+            <li><a href="contact.html" class="footer__link">Nous écrire</a></li>
+            <li><a href="#" class="footer__link">Instagram</a></li>
+            <li><a href="#" class="footer__link">TikTok</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copy">© 2026 Next Level · Fait avec passion à Toulouse 🏀</p>
+        <div class="footer__socials" aria-label="Réseaux sociaux">
+          <a href="#" class="footer__social" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="#" class="footer__social" aria-label="TikTok">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+<script src="js/main.js" defer></script>
+<script src="js/basketball3d.js" defer></script>
+</body>
+</html>

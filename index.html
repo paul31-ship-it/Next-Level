@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Next Level — L'outil de gestion d'équipe basket qui transforme tes joueurs en héros. RPG, stats, animations matchs. Essai gratuit sans CB." />
+  <title>Next Level — Build Players. Build Legends.</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/style.css" />
+
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════
+     CANVAS 3D — ANIMATION BASKETBALL
+══════════════════════════════════════════ -->
+<canvas id="basketball-canvas" aria-hidden="true"></canvas>
+
+<!-- Barre de progression scroll -->
+<div class="scroll-progress" aria-hidden="true"></div>
+
+<!-- ══════════════════════════════════════════
+     NAVIGATION
+══════════════════════════════════════════ -->
+<nav class="nav" role="navigation" aria-label="Navigation principale">
+  <a href="index.html" class="nav__logo" aria-label="Next Level — Accueil">
+    <div class="nav__logo-mark" aria-hidden="true">N</div>
+    <span class="nav__logo-text">Next Level</span>
+  </a>
+
+  <ul class="nav__links" role="list">
+    <li><button class="nav__link" data-target="difference">Notre différence</button></li>
+    <li><button class="nav__link" data-target="histoire">Histoire</button></li>
+    <li><button class="nav__link" data-target="offre">Notre offre</button></li>
+    <li><button class="nav__link" data-target="avis">Avis</button></li>
+    <li><button class="nav__link" data-target="contact">Contact</button></li>
+    <li><a href="a-propos.html" class="nav__link">À propos</a></li>
+  </ul>
+
+  <div class="nav__cta">
+    <button class="btn-secondary" data-target="contact">Se connecter</button>
+    <button class="btn-primary" data-target="contact">Essai gratuit</button>
+  </div>
+
+  <!-- Burger mobile -->
+  <button class="nav__burger" aria-label="Ouvrir le menu" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</nav>
+
+<!-- Menu mobile -->
+<div class="nav__mobile-menu" role="dialog" aria-label="Menu mobile">
+  <button class="nav__mobile-close" aria-label="Fermer le menu">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <line x1="18" y1="6" x2="6" y2="18"></line>
+      <line x1="6" y1="6" x2="18" y2="18"></line>
+    </svg>
+  </button>
+  <button class="nav__mobile-link" data-target="difference">Notre différence</button>
+  <button class="nav__mobile-link" data-target="histoire">Histoire</button>
+  <button class="nav__mobile-link" data-target="offre">Notre offre</button>
+  <button class="nav__mobile-link" data-target="avis">Avis</button>
+  <button class="nav__mobile-link" data-target="contact">Contact</button>
+  <a href="a-propos.html" class="nav__mobile-link">À propos</a>
+  <button class="btn-primary btn-large" style="margin-top: 16px;" data-target="contact">Essai gratuit</button>
+</div>
+
+<!-- ══════════════════════════════════════════
+     CONTENU PRINCIPAL
+══════════════════════════════════════════ -->
+<div class="site-wrapper">
+
+  <!-- ── HERO ── -->
+  <section id="hero" class="hero" aria-labelledby="hero-title">
+    <div class="hero__bg" aria-hidden="true"></div>
+
+    <!-- Lignes de terrain déco -->
+    <svg class="hero__court-lines" viewBox="0 0 800 400" fill="none" stroke="white" aria-hidden="true">
+      <circle cx="400" cy="400" r="180" stroke-width="1.5"/>
+      <line x1="400" y1="220" x2="400" y2="400" stroke-width="1"/>
+      <rect x="270" y="280" width="260" height="120" rx="4" stroke-width="1.5"/>
+      <rect x="310" y="320" width="180" height="80" rx="4" stroke-width="1"/>
+      <circle cx="400" cy="280" r="35" stroke-width="1.5"/>
+    </svg>
+
+    <div class="hero__content">
+      <!-- Texte -->
+      <div class="hero__text">
+        <div class="hero__badge reveal">
+          <span class="hero__badge-dot" aria-hidden="true"></span>
+          Bêta ouverte — Toulouse 2026
+        </div>
+
+        <h1 class="hero__title" id="hero-title">
+          <span class="reveal delay-1">Build</span>
+          <span class="reveal delay-2">Players.</span>
+          <span class="gradient-text reveal delay-3">Build Legends.</span>
+        </h1>
+
+        <p class="hero__body reveal delay-3">
+          Vestiaire transforme la gestion de ton équipe basket en aventure RPG.
+          Tes joueurs progressent comme dans un jeu — toi tu coachs comme un pro.
+          Sans Excel. Sans WhatsApp chaos. Sans prise de tête.
+        </p>
+
+        <div class="hero__actions reveal delay-4">
+          <button class="btn-primary btn-large" data-target="contact">
+            Commencer gratuitement
+          </button>
+          <button class="btn-secondary btn-large" data-target="offre">
+            Voir l'offre
+          </button>
+        </div>
+
+        <div class="hero__stats reveal delay-5">
+          <div>
+            <span class="hero__stat-value" data-counter="850" data-suffix="+">850+</span>
+            <p class="hero__stat-label">Coachs inscrits</p>
+          </div>
+          <div>
+            <span class="hero__stat-value" data-counter="3200" data-suffix="+">3 200+</span>
+            <p class="hero__stat-label">Joueurs suivis</p>
+          </div>
+          <div>
+            <span class="hero__stat-value" data-counter="98" data-suffix="%">98%</span>
+            <p class="hero__stat-label">Satisfaction</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Phone Mockup — App Discovery Carousel -->
+      <div class="phone-mockup reveal-right delay-2" aria-label="Aperçu de l'application Next Level">
+
+        <!-- Top label -->
+        <div class="phone-label">
+          <span class="phone-label__badge">
+            <span class="phone-label__dot" aria-hidden="true"></span>
+            Next Level App
+          </span>
+          <span class="phone-label__counter" id="phoneCounter">01 / 12</span>
+        </div>
+
+        <!-- Phone frame -->
+        <div class="phone-frame" id="phoneFrame">
+          <!-- Dynamic island -->
+          <div class="phone-notch" aria-hidden="true">
+            <span class="phone-notch__cam"></span>
+          </div>
+
+          <!-- Screen + carousel -->
+          <div class="phone-screen">
+            <div class="phone-carousel" aria-live="polite" aria-atomic="true">
+              <div class="phone-slides" id="phoneSlides">
+                <img class="phone-slide" src="assets/Nextlevel ecran 1.png"  alt="Écran 1 — Accueil"           loading="eager" draggable="false" />
+                <img class="phone-slide" src="assets/Nextlevel ecran 2.png"  alt="Écran 2"                     loading="lazy"  draggable="false" />
+                <img class="phone-slide" src="assets/Nextlevel ecran 3.png"  alt="Écran 3"                     loading="lazy"  draggable="false" />
+                <img class="phone-slide" src="assets/Nextlevel ecran 5.png"  alt="Écran 5"                     loading="lazy"  draggable="false" />
+                <img class="phone-slide" src="assets/Nextlevel ecran 6.png"  alt="Écran 6"                     loading="lazy"  draggable="false" />
+                <img class="phone-slide" src="assets/Nextlevel ecran 7.png"  alt="Écran 7"                     loading="lazy"  draggable="false" />
+                <img class="phone-slide" src="assets/Nextlevel ecran 8.png"  alt="Écran 8"                     loading="lazy"  draggable="false" />
+                <img class="phone-slide" src="assets/Nextlevel ecran 9.png"  alt="Écran 9"                     loading="lazy"  draggable="false" />
+                <img class="phone-slide" src="assets/Nextlevel ecran 10.png" alt="Écran 10"                    loading="lazy"  draggable="false" />
+                <img class="phone-slide" src="assets/Nextlevel ecran 11.png" alt="Écran 11"                    loading="lazy"  draggable="false" />
+                <img class="phone-slide" src="assets/Nextlevel ecran 12.png" alt="Écran 12"                    loading="lazy"  draggable="false" />
+                <img class="phone-slide" src="assets/Nextlevel ecran 13.png" alt="Écran 13"                    loading="lazy"  draggable="false" />
+              </div>
+            </div>
+          </div><!-- /.phone-screen -->
+
+          <!-- Home bar -->
+          <div class="phone-home-bar" aria-hidden="true"></div>
+        </div><!-- /.phone-frame -->
+
+        <!-- Navigation -->
+        <div class="phone-controls" role="group" aria-label="Navigation entre les écrans">
+          <button class="phone-nav-btn" id="phonePrev" aria-label="Écran précédent">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="15 18 9 12 15 6"/>
+            </svg>
+          </button>
+
+          <div class="phone-dots" role="tablist" aria-label="Indicateurs d'écran" id="phoneDots">
+            <button class="phone-dot phone-dot--active" role="tab" aria-selected="true"  aria-label="Écran 1"  data-slide="0"></button>
+            <button class="phone-dot" role="tab" aria-selected="false" aria-label="Écran 2"  data-slide="1"></button>
+            <button class="phone-dot" role="tab" aria-selected="false" aria-label="Écran 3"  data-slide="2"></button>
+            <button class="phone-dot" role="tab" aria-selected="false" aria-label="Écran 4"  data-slide="3"></button>
+            <button class="phone-dot" role="tab" aria-selected="false" aria-label="Écran 5"  data-slide="4"></button>
+            <button class="phone-dot" role="tab" aria-selected="false" aria-label="Écran 6"  data-slide="5"></button>
+            <button class="phone-dot" role="tab" aria-selected="false" aria-label="Écran 7"  data-slide="6"></button>
+            <button class="phone-dot" role="tab" aria-selected="false" aria-label="Écran 8"  data-slide="7"></button>
+            <button class="phone-dot" role="tab" aria-selected="false" aria-label="Écran 9"  data-slide="8"></button>
+            <button class="phone-dot" role="tab" aria-selected="false" aria-label="Écran 10" data-slide="9"></button>
+            <button class="phone-dot" role="tab" aria-selected="false" aria-label="Écran 11" data-slide="10"></button>
+            <button class="phone-dot" role="tab" aria-selected="false" aria-label="Écran 12" data-slide="11"></button>
+          </div>
+
+          <button class="phone-nav-btn" id="phoneNext" aria-label="Écran suivant">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="9 18 15 12 9 6"/>
+            </svg>
+          </button>
+        </div><!-- /.phone-controls -->
+
+      </div><!-- /.phone-mockup -->
+    </div>
+  </section>
+
+  <!-- ── SECTION "NOTRE DIFFÉRENCE" ── -->
+  <section id="difference" class="section difference" aria-labelledby="difference-title">
+    <div class="court-glow" aria-hidden="true"></div>
+    <div class="container">
+      <div class="reveal">
+        <p class="section__label">Notre différence</p>
+        <h2 class="section__title" id="difference-title">
+          Pas un outil de plus.<br/>
+          <span class="gradient-text">Un game changer.</span>
+        </h2>
+        <p class="section__subtitle">
+          Les outils basket existants traitent tes joueurs comme des lignes de tableur.
+          Next Level les traite comme des héros de RPG.
+        </p>
+      </div>
+
+      <div class="difference__grid">
+        <!-- Carte 1 -->
+        <article class="diff-card reveal delay-1">
+          <span class="diff-card__number">01</span>
+          <div class="diff-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+              <path d="M2 17l10 5 10-5"/>
+              <path d="M2 12l10 5 10-5"/>
+            </svg>
+          </div>
+          <h3 class="diff-card__title">Mécanique RPG</h3>
+          <p class="diff-card__text">
+            Chaque joueur gagne de l'XP, monte de niveau, débloque des badges.
+            La progression devient visible et addictive — pour eux comme pour toi.
+          </p>
+        </article>
+
+        <!-- Carte 2 -->
+        <article class="diff-card reveal delay-2">
+          <span class="diff-card__number">02</span>
+          <div class="diff-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="23 7 16 12 23 17 23 7"/>
+              <rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
+            </svg>
+          </div>
+          <h3 class="diff-card__title">Animations matchs</h3>
+          <p class="diff-card__text">
+            Des récaps vidéo générés automatiquement après chaque match.
+            Tes joueurs partagent, les parents suivent, le club s'embrase.
+          </p>
+        </article>
+
+        <!-- Carte 3 -->
+        <article class="diff-card reveal delay-3">
+          <span class="diff-card__number">03</span>
+          <div class="diff-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="20" x2="18" y2="10"/>
+              <line x1="12" y1="20" x2="12" y2="4"/>
+              <line x1="6" y1="20" x2="6" y2="14"/>
+            </svg>
+          </div>
+          <h3 class="diff-card__title">Stats intelligentes</h3>
+          <p class="diff-card__text">
+            Fini les notes au carnet perdues. Tes stats sont centralisées, comparables saison après saison.
+            Montre à chaque joueur sa progression concrète.
+          </p>
+        </article>
+
+        <!-- Carte 4 -->
+        <article class="diff-card reveal delay-1">
+          <span class="diff-card__number">04</span>
+          <div class="diff-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </div>
+          <h3 class="diff-card__title">Communication centralisée</h3>
+          <p class="diff-card__text">
+            Stop au chaos WhatsApp. Convocations, absences, messages d'équipe —
+            tout au même endroit. Les parents posent moins de questions, toi tu coaches.
+          </p>
+        </article>
+
+        <!-- Carte 5 -->
+        <article class="diff-card reveal delay-2">
+          <span class="diff-card__number">05</span>
+          <div class="diff-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+            </svg>
+          </div>
+          <h3 class="diff-card__title">Insights coach</h3>
+          <p class="diff-card__text">
+            Suggestions automatiques basées sur les données de jeu.
+            Quel joueur mérite plus de temps ? Qui progresse le plus ?
+            Les données répondent pour toi.
+          </p>
+        </article>
+
+        <!-- Carte 6 -->
+        <article class="diff-card reveal delay-3">
+          <span class="diff-card__number">06</span>
+          <div class="diff-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="8" r="7"/>
+              <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/>
+            </svg>
+          </div>
+          <h3 class="diff-card__title">Conçu pour les bénévoles</h3>
+          <p class="diff-card__text">
+            Onboarding en moins de 10 minutes. Prix accessible.
+            Zero connaissance technique requise. Pour le coach passionné,
+            pas pour l'analyste vidéo pro.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SECTION "NOTRE HISTOIRE" ── -->
+  <section id="histoire" class="section histoire section--dark" aria-labelledby="histoire-title">
+    <div class="container">
+      <div class="histoire__inner">
+        <!-- Image -->
+        <div class="histoire__image-wrap reveal-left">
+          <img
+            src="https://images.unsplash.com/photo-1546519638-68e109498ffc?w=800&q=80"
+            alt="Coach basket en action sur le terrain"
+            loading="lazy"
+            width="600"
+            height="750"
+          />
+        </div>
+
+        <!-- Texte -->
+        <div class="reveal-right">
+          <p class="section__label">Notre histoire</p>
+          <h2 class="section__title" id="histoire-title">
+            Né du terrain,<br/>
+            <span class="gradient-text">pas d'une salle de conf.</span>
+          </h2>
+          <p class="section__subtitle" style="margin-bottom: 0;">
+            Next Level est né d'une frustration réelle : des coachs passionnés
+            coincés avec des outils poussiéreux qui ne comprennent rien à la réalité du terrain.
+          </p>
+
+          <div class="histoire__timeline">
+            <div class="histoire__step">
+              <div class="histoire__step-num" aria-hidden="true">01</div>
+              <div>
+                <h3 class="histoire__step-title">La frustration</h3>
+                <p class="histoire__step-text">
+                  Théo, coach U15 à Toulouse, passait plus de temps sur Excel
+                  et WhatsApp que sur ses exercices tactiques. Il cherchait un outil
+                  qui comprenne vraiment le coach bénévole.
+                </p>
+              </div>
+            </div>
+
+            <div class="histoire__step">
+              <div class="histoire__step-num" aria-hidden="true">02</div>
+              <div>
+                <h3 class="histoire__step-title">L'idée</h3>
+                <p class="histoire__step-text">
+                  Et si la gestion d'équipe devenait aussi fun que NBA 2K ?
+                  Chaque joueur comme un personnage RPG. Chaque match comme un épisode.
+                  La progression, rendue visible et motivante.
+                </p>
+              </div>
+            </div>
+
+            <div class="histoire__step">
+              <div class="histoire__step-num" aria-hidden="true">03</div>
+              <div>
+                <h3 class="histoire__step-title">Aujourd'hui</h3>
+                <p class="histoire__step-text">
+                  Next Level est en bêta active à Toulouse. 850+ coachs testent l'app.
+                  Les joueurs s'en emparent. Les parents adorent les animations matchs.
+                  Et les clubs commencent à tendre l'oreille.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SECTION "NOTRE OFFRE" ── -->
+  <section id="offre" class="section offre" aria-labelledby="offre-title">
+    <div class="container">
+      <div class="reveal">
+        <p class="section__label">Notre offre</p>
+        <h2 class="section__title" id="offre-title">
+          Commence gratos.<br/>
+          <span class="gradient-text">Upgrade quand tu es prêt.</span>
+        </h2>
+        <p class="section__subtitle">
+          Pas de carte bancaire pour démarrer. Pas de démo en visio à 14h.
+          Tu testes, tu kiffes, tu choisis.
+        </p>
+      </div>
+
+      <div class="offre__grid">
+        <!-- Offre vedette -->
+        <article class="offre-card offre-card--featured reveal">
+          <span class="offre-card__tag">🏆 Plus populaire</span>
+          <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start;">
+            <div>
+              <h3 class="offre-card__title">Coach Pro</h3>
+              <p class="offre-card__desc">
+                Tout ce qu'il faut pour coacher comme un pro sans budget de pro.
+                Stats avancées, animations matchs HD, accès illimité.
+              </p>
+              <div style="margin-top: 24px;">
+                <span style="font-family: var(--font-mono); font-size: 3rem; font-weight: 700; color: var(--nl-neon-cyan); text-shadow: var(--glow-cyan);">9€</span>
+                <span style="color: var(--nl-text-secondary); font-size: var(--text-sm);">/mois · sans engagement</span>
+              </div>
+              <button class="btn-primary btn-large" style="margin-top: 24px; display: block; text-align: center;" data-target="contact">
+                Démarrer l'essai gratuit
+              </button>
+            </div>
+            <div>
+              <ul class="offre-card__features">
+                <li class="offre-feature">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  Gestion illimitée de joueurs et d'équipes
+                </li>
+                <li class="offre-feature">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  Système RPG complet (XP, niveaux, badges)
+                </li>
+                <li class="offre-feature">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  Animations matchs HD (export Insta / TikTok)
+                </li>
+                <li class="offre-feature">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  Stats avancées & insights coach IA
+                </li>
+                <li class="offre-feature">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  Hub communication parents/joueurs
+                </li>
+                <li class="offre-feature">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  Mode Tournoi & finales saison
+                </li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- Offre gratuite -->
+        <article class="offre-card reveal delay-1">
+          <span class="offre-card__tag" style="background: rgba(244,242,255,0.08); color: var(--nl-text-secondary); box-shadow: none;">Gratuit</span>
+          <h3 class="offre-card__title">Starter</h3>
+          <p class="offre-card__desc">
+            Pour découvrir Next Level sans risque.
+            Fonctionnalités essentielles, une équipe, pas de CB.
+          </p>
+          <ul class="offre-card__features">
+            <li class="offre-feature">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              1 équipe, jusqu'à 15 joueurs
+            </li>
+            <li class="offre-feature">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Statistiques de base
+            </li>
+            <li class="offre-feature">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              RPG Starter (XP + niveau)
+            </li>
+            <li class="offre-feature">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Communication équipe
+            </li>
+          </ul>
+          <button class="btn-secondary" style="margin-top: 28px; width: 100%;" data-target="contact">
+            Créer mon compte gratuit
+          </button>
+        </article>
+
+        <!-- Offre club -->
+        <article class="offre-card reveal delay-2">
+          <span class="offre-card__tag" style="background: rgba(61,224,255,0.1); color: var(--nl-neon-cyan); box-shadow: var(--glow-cyan);">Club</span>
+          <h3 class="offre-card__title">Club Pro</h3>
+          <p class="offre-card__desc">
+            Pour les clubs qui veulent équiper tous leurs coachs d'un coup.
+            Tarif préférentiel, branding club, dashboard dirigeant.
+          </p>
+          <ul class="offre-card__features">
+            <li class="offre-feature">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Coachs illimités
+            </li>
+            <li class="offre-feature">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Branding club personnalisé
+            </li>
+            <li class="offre-feature">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Dashboard dirigeant
+            </li>
+            <li class="offre-feature">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Toutes les fonctionnalités Pro
+            </li>
+          </ul>
+          <button class="btn-secondary" style="margin-top: 28px; width: 100%; border-color: var(--nl-neon-cyan); color: var(--nl-neon-cyan);" data-target="contact">
+            Contacter l'équipe
+          </button>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SECTION "AVIS CLIENTS" ── -->
+  <section id="avis" class="section avis section--dark" aria-labelledby="avis-title">
+    <div class="container">
+      <div class="reveal">
+        <p class="section__label">Avis clients</p>
+        <h2 class="section__title" id="avis-title">
+          Ils coachent.<br/>
+          <span class="gradient-text">Ils en parlent.</span>
+        </h2>
+      </div>
+    </div>
+
+    <!-- Slider auto-scroll infini -->
+    <div class="avis__track-wrapper" aria-label="Témoignages clients">
+      <div class="avis__track" role="list">
+        <!-- Lot 1 (dupliqué pour boucle infinie) -->
+        <article class="avis-card" role="listitem">
+          <div class="avis-card__stars" aria-label="5 étoiles sur 5">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <p class="avis-card__text">"Mes U15 sont obsédés par leurs niveaux RPG. Pour la première fois, ils me demandent leurs stats après le match au lieu de parler du score. Ça change tout."</p>
+          <div class="avis-card__author">
+            <div class="avis-card__avatar" aria-hidden="true">T</div>
+            <div>
+              <div class="avis-card__name">Théo Castan</div>
+              <div class="avis-card__role">Coach U15 · Stade Toulousain Basket</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="avis-card" role="listitem">
+          <div class="avis-card__stars" aria-label="5 étoiles sur 5">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <p class="avis-card__text">"L'animation du match de samedi, je l'ai postée sur mon Insta dimanche soir. 400 vues en 12h. Les parents du club m'ont tous demandé c'était quoi l'app."</p>
+          <div class="avis-card__author">
+            <div class="avis-card__avatar" aria-hidden="true">M</div>
+            <div>
+              <div class="avis-card__name">Marc Delclos</div>
+              <div class="avis-card__role">Coach U12 · Blagnac Basket</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="avis-card" role="listitem">
+          <div class="avis-card__stars" aria-label="5 étoiles sur 5">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <p class="avis-card__text">"J'avais peur que ce soit un truc pour coaches pros avec budget d'analyste. C'est tout le contraire — j'ai tout configuré en 8 minutes chrono entre deux entraînements."</p>
+          <div class="avis-card__author">
+            <div class="avis-card__avatar" aria-hidden="true">S</div>
+            <div>
+              <div class="avis-card__name">Sophie Arnaud</div>
+              <div class="avis-card__role">Coach U13 Féminines · TMB</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="avis-card" role="listitem">
+          <div class="avis-card__stars" aria-label="5 étoiles sur 5">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <p class="avis-card__text">"Les parents arrêtent de me demander 'pourquoi mon fils joue moins'. Je leur montre les stats RPG sur l'app, ils comprennent. Ça a changé la dynamique de groupe."</p>
+          <div class="avis-card__author">
+            <div class="avis-card__avatar" aria-hidden="true">R</div>
+            <div>
+              <div class="avis-card__name">Romain Garnier</div>
+              <div class="avis-card__role">Coach U18 · Colomiers BB</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="avis-card" role="listitem">
+          <div class="avis-card__stars" aria-label="5 étoiles sur 5">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <p class="avis-card__text">"Mes joueurs se retrouvent chez eux pour regarder leurs stats ensemble et décider de la stratégie. L'implication a explosé. Je n'aurais jamais imaginé ça possible avec des U10."</p>
+          <div class="avis-card__author">
+            <div class="avis-card__avatar" aria-hidden="true">J</div>
+            <div>
+              <div class="avis-card__name">Julie Moreau</div>
+              <div class="avis-card__role">Coach U10 · Tournefeuille Basket</div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Lot dupliqué pour boucle infinie CSS -->
+        <article class="avis-card" role="listitem" aria-hidden="true">
+          <div class="avis-card__stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+          <p class="avis-card__text">"Mes U15 sont obsédés par leurs niveaux RPG. Pour la première fois, ils me demandent leurs stats après le match au lieu de parler du score."</p>
+          <div class="avis-card__author"><div class="avis-card__avatar">T</div><div><div class="avis-card__name">Théo Castan</div><div class="avis-card__role">Coach U15 · Stade Toulousain Basket</div></div></div>
+        </article>
+        <article class="avis-card" role="listitem" aria-hidden="true">
+          <div class="avis-card__stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+          <p class="avis-card__text">"L'animation du match de samedi, je l'ai postée sur mon Insta dimanche soir. 400 vues en 12h. Les parents du club m'ont tous demandé c'était quoi l'app."</p>
+          <div class="avis-card__author"><div class="avis-card__avatar">M</div><div><div class="avis-card__name">Marc Delclos</div><div class="avis-card__role">Coach U12 · Blagnac Basket</div></div></div>
+        </article>
+        <article class="avis-card" role="listitem" aria-hidden="true">
+          <div class="avis-card__stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+          <p class="avis-card__text">"J'avais peur que ce soit un truc pour coaches pros. C'est tout le contraire — j'ai tout configuré en 8 minutes chrono entre deux entraînements."</p>
+          <div class="avis-card__author"><div class="avis-card__avatar">S</div><div><div class="avis-card__name">Sophie Arnaud</div><div class="avis-card__role">Coach U13 Féminines · TMB</div></div></div>
+        </article>
+        <article class="avis-card" role="listitem" aria-hidden="true">
+          <div class="avis-card__stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+          <p class="avis-card__text">"Les parents arrêtent de me demander pourquoi leur fils joue moins. Je leur montre les stats RPG, ils comprennent. Dynamique de groupe transformée."</p>
+          <div class="avis-card__author"><div class="avis-card__avatar">R</div><div><div class="avis-card__name">Romain Garnier</div><div class="avis-card__role">Coach U18 · Colomiers BB</div></div></div>
+        </article>
+        <article class="avis-card" role="listitem" aria-hidden="true">
+          <div class="avis-card__stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+          <p class="avis-card__text">"Mes joueurs se retrouvent chez eux pour regarder leurs stats ensemble. L'implication a explosé. Je n'aurais jamais imaginé ça possible avec des U10."</p>
+          <div class="avis-card__author"><div class="avis-card__avatar">J</div><div><div class="avis-card__name">Julie Moreau</div><div class="avis-card__role">Coach U10 · Tournefeuille Basket</div></div></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA FINAL ── -->
+  <section class="cta-final" aria-labelledby="cta-title">
+    <div class="container">
+      <h2 class="cta-final__title reveal">
+        Prêt à <span style="background: var(--nl-gradient-legend); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">devenir</span><br/>
+        un meilleur coach ?
+      </h2>
+      <p class="cta-final__sub reveal delay-1">
+        Rejoins 850+ coachs qui ont déjà passé le niveau supérieur.<br/>
+        Essai gratuit · Pas de CB · Setup en 8 minutes.
+      </p>
+      <div class="cta-final__actions reveal delay-2">
+        <button class="btn-primary btn-large" data-target="contact">
+          Commencer maintenant — C'est gratuit
+        </button>
+        <a href="a-propos.html" class="btn-secondary btn-large">
+          En savoir plus
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SECTION CONTACT ── -->
+  <section id="contact" class="section contact" aria-labelledby="contact-title">
+    <div class="container">
+      <div class="contact__inner">
+        <!-- Info -->
+        <div class="contact__info reveal-left">
+          <p class="section__label">Contact</p>
+          <h2 class="section__title" id="contact-title">
+            On est là.<br/>
+            <span class="gradient-text">Dis-nous tout.</span>
+          </h2>
+          <p class="section__subtitle">
+            Une question sur Next Level ? Tu veux déployer l'app dans ton club ?
+            Tu souhaites rejoindre la bêta à Toulouse ?
+            Écris-nous, on répond sous 24h.
+          </p>
+
+          <div class="contact__info-items">
+            <div class="contact__info-item">
+              <div class="contact__info-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                  <polyline points="22,6 12,13 2,6"/>
+                </svg>
+              </div>
+              <div>
+                <p class="contact__info-label">Email</p>
+                <p class="contact__info-value">hello@nextlevel.app</p>
+              </div>
+            </div>
+            <div class="contact__info-item">
+              <div class="contact__info-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+              </div>
+              <div>
+                <p class="contact__info-label">Basé à</p>
+                <p class="contact__info-value">Toulouse, France 🇫🇷</p>
+              </div>
+            </div>
+            <div class="contact__info-item">
+              <div class="contact__info-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"/>
+                  <polyline points="12 6 12 12 16 14"/>
+                </svg>
+              </div>
+              <div>
+                <p class="contact__info-label">Réponse garantie</p>
+                <p class="contact__info-value">Sous 24h, jours ouvrés</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Formulaire -->
+        <div class="contact__form reveal-right">
+          <form class="contact-form" novalidate aria-label="Formulaire de contact">
+            <div class="form__row">
+              <div class="form__group">
+                <label class="form__label" for="prenom">Prénom *</label>
+                <input class="form__input" type="text" id="prenom" name="prenom" placeholder="Théo" required autocomplete="given-name" />
+              </div>
+              <div class="form__group">
+                <label class="form__label" for="nom">Nom *</label>
+                <input class="form__input" type="text" id="nom" name="nom" placeholder="Castan" required autocomplete="family-name" />
+              </div>
+            </div>
+            <div class="form__group">
+              <label class="form__label" for="email">Email *</label>
+              <input class="form__input" type="email" id="email" name="email" placeholder="theo@monclub.fr" required autocomplete="email" />
+            </div>
+            <div class="form__group">
+              <label class="form__label" for="sujet">Je suis…</label>
+              <select class="form__select" id="sujet" name="sujet">
+                <option value="">Choisir mon profil</option>
+                <option value="coach-benevole">Coach bénévole</option>
+                <option value="coach-pro">Coach professionnel</option>
+                <option value="president-club">Président de club</option>
+                <option value="parent">Parent / Joueur</option>
+                <option value="partenaire">Partenaire / Investisseur</option>
+              </select>
+            </div>
+            <div class="form__group">
+              <label class="form__label" for="message">Message *</label>
+              <textarea class="form__textarea" id="message" name="message" placeholder="Je veux déployer Next Level dans mon club de Toulouse…" required></textarea>
+            </div>
+            <button type="submit" class="btn-primary form__submit">
+              Envoyer le message
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <a href="index.html" class="nav__logo" aria-label="Next Level — Accueil">
+            <div class="nav__logo-mark" aria-hidden="true">N</div>
+            <span class="nav__logo-text">Next Level</span>
+          </a>
+          <p>Vestiaire transforme la gestion d'équipe basket en aventure RPG. Pour le coach passionné qui veut coacher comme un pro — sans le budget d'un pro.</p>
+        </div>
+
+        <div>
+          <h3 class="footer__col-title">Produit</h3>
+          <ul class="footer__links">
+            <li><button class="footer__link" data-target="difference">Fonctionnalités</button></li>
+            <li><button class="footer__link" data-target="offre">Tarifs</button></li>
+            <li><a href="a-propos.html" class="footer__link">À propos</a></li>
+            <li><button class="footer__link" data-target="contact">Roadmap</button></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer__col-title">Ressources</h3>
+          <ul class="footer__links">
+            <li><button class="footer__link" data-target="contact">Blog coach</button></li>
+            <li><button class="footer__link" data-target="contact">Guides tactiques</button></li>
+            <li><button class="footer__link" data-target="contact">Communauté</button></li>
+            <li><button class="footer__link" data-target="contact">Support</button></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer__col-title">Légal</h3>
+          <ul class="footer__links">
+            <li><button class="footer__link">Mentions légales</button></li>
+            <li><button class="footer__link">CGU</button></li>
+            <li><button class="footer__link">Politique RGPD</button></li>
+            <li><button class="footer__link">Données mineurs</button></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p class="footer__copy">
+          © 2026 Next Level · Fait avec passion à Toulouse 🏀 · Tous droits réservés
+        </p>
+        <div class="footer__socials" aria-label="Réseaux sociaux">
+          <!-- Instagram -->
+          <a href="#" class="footer__social" aria-label="Instagram Next Level">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+            </svg>
+          </a>
+          <!-- TikTok -->
+          <a href="#" class="footer__social" aria-label="TikTok Next Level">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/>
+            </svg>
+          </a>
+          <!-- Twitter/X -->
+          <a href="#" class="footer__social" aria-label="X (Twitter) Next Level">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4 4l16 16M4 20L20 4"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</div><!-- /.site-wrapper -->
+
+<!-- Scripts -->
+<script src="js/main.js" defer></script>
+<script src="js/basketball3d.js" defer></script>
+
+</body>
+</html>
